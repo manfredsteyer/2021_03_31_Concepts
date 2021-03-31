@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { DefaultFlightService, DummyFlightService, FlightService } from './flight-search/flight.service';
+import { FlightCardComponent } from './flight-card/flight-card.component';
 
 const DEBUG = false;
 
@@ -21,7 +22,8 @@ const DEBUG = false;
       AppComponent,
       SidebarComponent,
       NavbarComponent,
-      FlightSearchComponent
+      FlightSearchComponent,
+      FlightCardComponent
    ],
    providers: [
       // {

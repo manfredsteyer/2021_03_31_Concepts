@@ -18,6 +18,11 @@ export class FlightSearchComponent implements OnInit {
   flights: Flight[] = [];
   selectedFlight: Flight;
 
+  basket = {
+    3: true,
+    5: true,
+  };
+
   constructor(private flightService: FlightService) { }
 
   ngOnInit(): void {

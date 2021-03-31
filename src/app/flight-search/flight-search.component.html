@@ -4,30 +4,35 @@
         <h2 class="title">Flight Search</h2>
     </div>
     <div class="content">
-    
-    <form>
-    
-        <div class="form-group">
-            <label>From:</label>
-            <input name="from" class="form-control" [(ngModel)]="from">
-        </div>
-        <div class="form-group">
-            <label>To:</label>
-            <input name="to" class="form-control" [(ngModel)]="to">
-        </div>
-    
-        <div class="form-group">
-            <button 
-                [disabled]="!from || !to"
-                (click)="search()"
-                class="btn btn-default">Search</button>
+
+        <form>
+
+            <div class="form-group">
+                <label>From:</label>
+                <input name="from" class="form-control" [(ngModel)]="from">
             </div>
-    </form>
-    
+            <div class="form-group">
+                <label>To:</label>
+                <input name="to" class="form-control" [(ngModel)]="to">
+            </div>
+
+            <div class="form-group">
+                <button [disabled]="!from || !to" (click)="search()" class="btn btn-default">Search</button>
+            </div>
+        </form>
+
     </div>
-    </div>
-    
-    
+</div>
+
+
+<div class="row">
+<div *ngFor="let f of flights" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <app-flight-card 
+        [item]="f" 
+        [(selected)]="basket[f.id]"></app-flight-card>
+</div>
+</div>
+<!--     
     <div class="card">
     
         <table class="table table-contensed" *ngIf="flights.length > 0">
@@ -40,26 +45,24 @@
                 <th></th>
             </tr>
 
-            <!-- [ngStyle]="{ 'background-color': (f.id === selectedFlight?.id) ? 'orange' : 'white' -->
-            </thead>
-                <tr *ngFor="let f of flights" [ngClass]="{'active': f.id === selectedFlight?.id}">
-                    <td>{{f.id}}</td>
-                <td>{{f.from}}</td>
-                <td>{{f.to}}</td>
-                <td>{{f.date | date: 'dd.MM.yyyy'}}</td>
-                <td>
-                    <a (click)="select(f)">Select</a> 
-                
-                </td>
-            </tr>
-        </table>
-    
+</thead>
+<tr *ngFor="let f of flights" [ngClass]="{'active': f.id === selectedFlight?.id}">
+    <td>{{f.id}}</td>
+    <td>{{f.from}}</td>
+    <td>{{f.to}}</td>
+    <td>{{f.date | date: 'dd.MM.yyyy'}}</td>
+    <td>
+        <a (click)="select(f)">Select</a>
+
+    </td>
+</tr>
+</table>
+
+</div> -->
+
+
+<div class="card">
+    <div class="content">
+        <pre>{{basket | json}}</pre>
     </div>
-    
-    
-    <div class="card">
-        <div class="content">
-            <pre>{{selectedFlight | json}}</pre>
-        </div>
-    </div>
-    
+</div>
