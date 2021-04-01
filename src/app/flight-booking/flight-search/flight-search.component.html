@@ -18,6 +18,9 @@
 
             <div class="form-group">
                 <button [disabled]="!from || !to" (click)="search()" class="btn btn-default">Search</button>
+                
+                <button class="btn btn-default" (click)="delay()">Delay 1st flight</button>
+            
             </div>
         </form>
 
@@ -26,7 +29,7 @@
 
 
 <div class="row">
-<div *ngFor="let f of flights" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+<div *ngFor="let f of flights$ | async" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
     <app-flight-card 
         [item]="f" 
         [(selected)]="basket[f.id]"></app-flight-card>

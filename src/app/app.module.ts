@@ -1,14 +1,16 @@
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { FlightSearchComponent } from './flight-search/flight-search.component';
-import { DefaultFlightService, DummyFlightService, FlightService } from './flight-search/flight.service';
-import { FlightCardComponent } from './flight-card/flight-card.component';
+import { FlightBookingModule } from './flight-booking/flight-booking.module';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app.routes';
+import { SharedModule } from './shared/shared.module';
 
 const DEBUG = false;
 
@@ -17,13 +19,17 @@ const DEBUG = false;
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      SharedModule.forRoot(),
+
+      // Would prevent lazy loading!!
+      // FlightBookingModule, // <-- Lazy!!
+      RouterModule.forRoot(APP_ROUTES),
    ],
    declarations: [
       AppComponent,
       SidebarComponent,
       NavbarComponent,
-      FlightSearchComponent,
-      FlightCardComponent
+      HomeComponent 
    ],
    providers: [
       // {

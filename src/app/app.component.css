@@ -1,3 +1,14 @@
+.loading {
+    color: crimson;
+    font-size:20px;
+    font-weight: bold;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: white;
+}
+
+
 .loading-indicator {
     position: fixed;
     left: 0px;

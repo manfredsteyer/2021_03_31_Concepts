@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Flight } from '../entity/flight';
+import { Flight } from '../../entity/flight';
 import { DummyFlightService, FlightService } from './flight.service';
 
 @Component({
@@ -23,6 +23,9 @@ export class FlightSearchComponent implements OnInit {
     5: true,
   };
 
+
+  flights$ = this.flightService.flights$;
+
   constructor(private flightService: FlightService) { }
 
   ngOnInit(): void {
@@ -34,23 +37,17 @@ export class FlightSearchComponent implements OnInit {
       return;
     }
 
-    this.flightService.search(this.from, this.to).subscribe({
-
-      next: (flights) => {
-        this.flights = flights;
-      },
-
-      error: (err) => {
-        console.error('err', err)
-      }
-
-
-    })
-  
+    this.flightService.find(this.from, this.to);
   }
 
   select(f: Flight) {
     this.selectedFlight = f;
+  }
+
+  delay() {
+    this.flightService.delay();
+
+
   }
 
 }
