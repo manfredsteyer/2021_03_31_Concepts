@@ -29,7 +29,7 @@ const DEBUG = false;
       AppComponent,
       SidebarComponent,
       NavbarComponent,
-      HomeComponent 
+      HomeComponent,
    ],
    providers: [
       // {

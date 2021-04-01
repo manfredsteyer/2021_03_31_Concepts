@@ -6,7 +6,14 @@
 
 <app-tabbed-pane>
     <app-tab title="Upcoming Flights">
-        <b>No upcoming flights!</b>
+        
+        <app-data-table [data]="flights">
+            <div *appTableField="let data as 'id'">{{data}}</div>
+            <div *appTableField="let data as 'from'" [ngStyle]="{ 'color': (data=== 'Berlin') ? 'red' : 'blue' }">{{data}}</div>
+            <div *appTableField="let data as 'to'" [ngStyle]="{ 'color': (data=== 'Berlin') ? 'red' : 'blue' }">{{data}}</div>
+            <div *appTableField="let data as 'date'">{{data | date:'dd.MM.yyyy HH:mm'}}</div>
+        </app-data-table>
+
     </app-tab>
 
     <app-tab title="Operating Flights">
@@ -17,3 +24,5 @@
         <b>No upcoming flights!</b>
     </app-tab>
 </app-tabbed-pane>
+
+<button (appClickWithWarning)="delete()" message="Geht's noch?">Click me!</button>

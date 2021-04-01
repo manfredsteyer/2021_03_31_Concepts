@@ -5,4 +5,11 @@
 </div>
 <div>
     <ng-content></ng-content>
+
+
+    <app-pager #myPager></app-pager>
+
+    **{{myPager.page}}**
+    <button (click)="myPager.doIT();">Call Method via Handle!</button>
+
 </div>

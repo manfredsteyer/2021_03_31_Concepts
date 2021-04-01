@@ -6,15 +6,9 @@ import { TabbedPaneComponent } from '../tabbed-pane/tabbed-pane.component';
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.css']
 })
-export class TabComponent implements OnInit {
+export class TabComponent {
 
   @Input() title: string;
   active: boolean;
-
-  constructor(private pane: TabbedPaneComponent) { }
-
-  ngOnInit(): void {
-    this.pane.register(this);
-  }
 
 }
